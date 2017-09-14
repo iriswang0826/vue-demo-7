@@ -6,6 +6,11 @@ import Layout from './components/layout'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import IndexPage from './pages/index'
+import DetailPage from './pages/detail'
+import DetailAnaPage from './pages/detail/analysis'
+import DetailCouPage from './pages/detail/count'
+import DetailForPage from './pages/detail/forecast'
+import DetailPubPage from './pages/detail/publish'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -17,6 +22,29 @@ let router = new VueRouter({
     {
       path: '/',
       component: IndexPage
+    },
+    {
+      path: '/detail',
+      component: DetailPage,
+      redirect: '/detail/count',
+      children: [
+        {
+          path: 'analysis',
+          component: DetailAnaPage
+        },
+        {
+          path: 'count',
+          component: DetailCouPage
+        },
+        {
+          path: 'forecast',
+          component: DetailForPage
+        },
+        {
+          path: 'publish',
+          component: DetailPubPage
+        }
+      ]
     }
   ]
 })
