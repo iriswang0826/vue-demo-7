@@ -10,7 +10,7 @@
                   购买数量：
               </div>
               <div class="sales-board-line-right">
-                <v-counter @on-change="onParamChange('buyNum', $event)"></v-counter>
+                  <v-counter @on-change="onParamChange('buyNum', $event)"></v-counter>
               </div>
           </div>
           <div class="sales-board-line">
@@ -113,10 +113,14 @@
 </template>
 
 <script>
-import VSelection from '../../components/selection'
+import VSelection from '../../components/base/selection'
+import VCounter from '../../components/base/counter'
+import VChooser from '../../components/base/choose'
 export default {
   components: {
-    VSelection
+    VSelection,
+    VCounter,
+    VChooser
   },
   data () {
     return {
