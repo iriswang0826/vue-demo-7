@@ -36,9 +36,7 @@
                   产品版本：
               </div>
               <div class="sales-board-line-right">
-                  <v-mul-chooser
-                  :selections="versionList"
-                  @on-change="onParamChange('versions', $event)"></v-mul-chooser>
+                  <v-m-chooser :selections="versionList"></v-m-chooser>
               </div>
           </div>
           <div class="sales-board-line">
@@ -116,11 +114,13 @@
 import VSelection from '../../components/base/selection'
 import VCounter from '../../components/base/counter'
 import VChooser from '../../components/base/choose'
+import VMChooser from '../../components/base/multiplyChooser'
 export default {
   components: {
     VSelection,
     VCounter,
-    VChooser
+    VChooser,
+    VMChooser
   },
   data () {
     return {
