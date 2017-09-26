@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
   props: {
     selections: {
@@ -26,6 +27,24 @@ export default {
   data () {
     return {
       nowIndexs: [0]
+    }
+  },
+  methods: {
+    toggleSelection (index) {
+      if (this.nowIndexs.indexOf(index) === -1) {
+        this.nowIndexs.push(index)
+      } else {
+        this.nowIndexs = _.remove(this.nowIndexs, (idx) => {
+          return idx !== index
+        })
+      }
+      let nowObjArray = _.map(this.nowIndexs, (idx) => {
+        return this.selections[idx]
+      })
+      this.$emit('on-change', nowObjArray)
+    },
+    checkActive (index) {
+      return this.nowIndexs.indexOf(index) !== -1
     }
   }
 
